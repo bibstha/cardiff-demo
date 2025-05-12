@@ -6,14 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <main class="flex mx-auto mt-28 px-5 container">
-      <%= yield %>
-    </main>
+    <div class="flex">
+      <%= render "shared/onboarding/sidebar", step_array: @step_array %>
+      <div class="flex-1 overflow-auto">
+        <%= render "shared/onboarding/mobile_progress_bar", step_array: @step_array %>
+        <%= render "shared/flash_messages" %>
+        <main class="px-6 lg:px-12 py-8 lg:py-12">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

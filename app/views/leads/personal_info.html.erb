@@ -1,0 +1,93 @@
+<div class="mx-auto p-8 w-full lg:w-2/3 overflow-y-auto">
+  <%# Progress Bar - Simple text version %>
+  <div class="mb-4 text-gray-500 text-sm text-right">Progress 0%</div>
+  <%# You might want a more visual progress bar here %>
+  <%# Example: render partial: "shared/onboarding/progress_bar", locals: { step: wizard_steps.index(step), total_steps: wizard_steps.count } %>
+  
+  <h1 class="mb-6 font-semibold text-gray-800 text-2xl">Check your business eligibility in 60 seconds</h1>
+
+  <%= form_with model: @lead, url: wizard_path, method: :put, data: { turbo: false } do |f| %>
+    
+    <%# Funding Needed %>
+    <div class="mb-4">
+      <%= f.label :funding_needed, "How much funding do you need?", class: "block text-sm font-medium text-gray-700 mb-1" %>
+      <div class="relative shadow-xs rounded-sm">
+        <div class="left-0 absolute inset-y-0 flex items-center pl-3 pointer-events-none">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.text_field :funding_needed, class: "block w-full rounded-sm border-1 border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10", placeholder: "" %>
+      </div>
+    </div>
+
+    <%# Average Monthly Sales %>
+    <div class="mb-4">
+      <%= f.label :average_monthly_sales, "What is your Average Monthly Sales?", class: "block text-sm font-medium text-gray-700 mb-1" %>
+      <div class="relative shadow-xs rounded-sm">
+        <div class="left-0 absolute inset-y-0 flex items-center pl-3 pointer-events-none">
+          <span class="text-gray-500 sm:text-sm">$</span>
+        </div>
+        <%= f.text_field :average_monthly_sales, class: "block w-full rounded-sm border-1 border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10", placeholder: "" %>
+      </div>
+    </div>
+
+    <%# Estimated Yearly Sales - Display Only %>
+    <div class="mb-4 text-gray-600 text-sm">
+      Estimated Yearly Sales: <span class="font-medium text-gray-800">$ 0</span> <%# Needs JS for dynamic calculation %>
+    </div>
+
+    <%# First and Last Name (Side-by-side) %>
+    <div class="gap-4 grid grid-cols-1 sm:grid-cols-2 mb-4">
+      <div>
+        <%= f.label :first_name, class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.text_field :first_name, class: "block w-full rounded-sm border-1 border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-3" %>
+      </div>
+      <div>
+        <%= f.label :last_name, class: "block text-sm font-medium text-gray-700 mb-1" %>
+        <%= f.text_field :last_name, class: "block w-full rounded-sm border-1 border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-3" %>
+      </div>
+    </div>
+
+    <%# Business Email Address %>
+    <div class="mb-4">
+      <%= f.label :business_email, "Business Email Address", class: "block text-sm font-medium text-gray-700 mb-1" %>
+      <div class="relative shadow-xs rounded-sm">
+         <%# Email icon placeholder - Tailwind doesn't have a default mail icon easily accessible here %>
+         <%# Consider adding heroicons-rails gem or similar for icons %>
+        <div class="right-0 absolute inset-y-0 flex items-center pr-3 pointer-events-none">
+           <span class="text-gray-400 sm:text-sm">📧</span> <%# Simple email emoji placeholder %>
+        </div>
+        <%= f.email_field :business_email, class: "block w-full rounded-sm border-1 border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pr-10 h-10 pl-3" %>
+      </div>
+    </div>
+
+    <%# Cell Phone %>
+    <div class="mb-6">
+      <%= f.label :cell_phone, "Cell Phone", class: "block text-sm font-medium text-gray-700 mb-1" %>
+       <div class="relative shadow-xs rounded-sm">
+         <div class="right-0 absolute inset-y-0 flex items-center pr-3 pointer-events-none">
+           <span class="text-gray-400 sm:text-sm">📱</span> <%# Simple phone emoji placeholder %>
+        </div>
+        <%= f.telephone_field :cell_phone, class: "block w-full rounded-sm border-1 border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pr-10 h-10 pl-3" %>
+       </div>
+    </div>
+
+    <%# Terms Agreement Checkbox %>
+    <div class="flex items-start mb-6">
+      <div class="flex items-center h-5">
+        <%= f.check_box :terms_accepted, class: "h-4 w-4 rounded border-1 border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+      </div>
+      <div class="ml-3 text-xs">
+        <label for="lead_terms_accepted" class="text-gray-500">By checking this box, you agree to receive <span class="font-medium text-gray-700">application status and funding decision notifications</span> along with recurring automated promotional and personalized marketing text messages(e.g. AI content) from Cardiff at the number you provide. Consent is not a condition of any purchase. Reply HELP for help and STOP to cancel. Msg frequency varies. Msg & data rates may apply. View <a href="https://attnl.tv/t/3Rk" target="_blank" class="font-medium text-indigo-600 hover:text-indigo-500">Terms</a> & <a href="https://attnl.tv/p/3Rk" target="_blank" class="font-medium text-indigo-600 hover:text-indigo-500">Privacy</a>.</label>
+      </div>
+    </div>
+
+    <%# Submit Button %>
+    <%= f.submit "Continue", class: "w-full flex justify-center py-3 px-4 border border-transparent rounded-sm shadow-xs text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer" %>
+
+    <%# Agreement Text Below Button %>
+    <p class="mt-4 text-gray-500 text-xs text-center">
+      By clicking Continue you agree to the <a href="https://cardiff.co/application-agreement/" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">Cardiff Application Agreement</a> and <a href="https://cardiff.co/esign-consent-agreement/" class="font-medium text-indigo-600 hover:text-indigo-500" target="_blank">E-Sign Consent Agreement</a>.
+    </p>
+
+  <% end %>
+</div>
