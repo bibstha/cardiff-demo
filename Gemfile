@@ -63,6 +63,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "kamal", "~> 2.5"
 end
 
 group :test do
@@ -76,3 +77,4 @@ gem 'wicked', '~> 2.0'
 gem 'ruby_ui', '~> 1.0'
 
 gem 'wicket', '~> 0.1.2'
+
