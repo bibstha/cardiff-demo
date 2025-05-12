@@ -12,23 +12,21 @@ class LeadsController < ApplicationController
 
   def show
     # Fetch the lead id from the session
-    if session[:lead_id].present?
-      @lead = Lead.find(session[:lead_id])
-    else
-      @lead = Lead.new
+    if session[:lead_id].present? 
+      @lead = Lead.find_by(id: session[:lead_id])
     end
+
+    @lead = Lead.new if @lead.blank?
     render_wizard
   end
 
   def update
     if session[:lead_id].present?
-      @lead = Lead.find(session[:lead_id])
-    else
-      @lead = Lead.new
+      @lead = Lead.find_by(id: session[:lead_id])
     end
 
+    @lead = Lead.new if @lead.blank?
     @lead.assign_attributes(lead_params)
-
 
     if @lead.save
       session[:lead_id] = @lead.id
