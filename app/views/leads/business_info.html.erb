@@ -28,7 +28,7 @@
         <% years_options.each do |option| %>
           <div>
             <%= f.radio_button :years_in_business, option, id: "years_#{option.parameterize}", class: "sr-only peer" %>
-            <%= f.label "years_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 peer-checked:font-medium hover:bg-gray-50" do %>
+            <%= f.label :years_in_business, for: "years_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-green-100 peer-checked:border-green-500 peer-checked:text-green-800 peer-checked:font-medium hover:bg-gray-50" do %>
               <%= option %>
             <% end %>
           </div>
@@ -44,7 +44,7 @@
          <% classification_options.each do |option| %>
            <div>
              <%= f.radio_button :business_classification, option, id: "classification_#{option.parameterize}", class: "sr-only peer" %>
-             <%= f.label "classification_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 peer-checked:font-medium hover:bg-gray-50" do %>
+             <%= f.label :business_classification, for: "classification_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-green-100 peer-checked:border-green-500 peer-checked:text-green-800 peer-checked:font-medium hover:bg-gray-50" do %>
                <%= option %>
              <% end %>
            </div>
