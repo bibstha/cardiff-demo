@@ -1,0 +1,82 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+
+Metrics/ClassLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/NegatedIf:
+  Enabled: false
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/CaseIndentation:
+  EnforcedStyle: end
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Style/AccessModifierDeclarations:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: consistent
+Metrics/ParameterLists:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Style/Documentation:
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'test/**/*.rb'
+    - 'engines/*/test/**/*.rb'
+
+AllCops:
+    NewCops: enable
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Minitest/MultipleAssertions:
+  Enabled: false
+
+Minitest/TestMethodName:
+  Enabled: false
+Rails/ActionControllerTestCase:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'test/**/*.rb'
+    - 'engines/*/test/**/*.rb'
+Naming/VariableNumber:
+  Exclude:
+    - 'test/**/*.rb'
+    - 'engines/*/test/**/*.rb'
+Naming/MethodName:
+  Exclude:
+    - 'test/**/*.rb'
+    - 'engines/*/test/**/*.rb'

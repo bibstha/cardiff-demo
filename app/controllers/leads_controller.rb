@@ -3,8 +3,8 @@ class LeadsController < ApplicationController
 
   steps :personal_info, :business_info, :review
 
-  layout "onboarding"
-  
+  layout 'onboarding'
+
   def show
     @lead = Lead.new
     render_wizard
@@ -12,21 +12,25 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.new(lead_params)
-    render_wizard @lead
+
+    if @lead.save
+      redirect_to wizard_path
+    else
+      render_wizard
+    end
   end
 
   private
 
   def lead_params
     params.require(:lead).permit(
-      :funding_needed,
-      :average_monthly_sales,
+      :requested_amount,
+      :monthly_sales,
       :first_name,
       :last_name,
-      :business_email,
-      :cell_phone,
-      :terms_accepted
+      :email,
+      :phone,
+      :sms_consent,
     )
   end
-  
 end

@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_09_183419) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_12_200949) do
   create_table "leads", force: :cascade do |t|
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone"
+    t.string "email", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "phone", null: false
     t.decimal "monthly_sales"
     t.decimal "requested_amount"
     t.boolean "sms_consent"
