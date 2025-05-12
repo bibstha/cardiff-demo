@@ -21,7 +21,14 @@ class LeadsController < ApplicationController
   end
 
   def update
-    @lead = Lead.new(lead_params)
+    if session[:lead_id].present?
+      @lead = Lead.find(session[:lead_id])
+    else
+      @lead = Lead.new
+    end
+
+    @lead.assign_attributes(lead_params)
+
 
     if @lead.save
       session[:lead_id] = @lead.id
@@ -53,7 +60,7 @@ class LeadsController < ApplicationController
       :sms_consent,
       # Business Info
       :business_name,
-      :years_in_business,
+      :year_in_business,
       :business_classification,
       :ein,
       :home_based,
