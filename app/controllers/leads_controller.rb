@@ -14,7 +14,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
 
     if @lead.save
-      redirect_to wizard_path
+      redirect_to next_wizard_path
     else
       render_wizard
     end
@@ -24,6 +24,7 @@ class LeadsController < ApplicationController
 
   def lead_params
     params.require(:lead).permit(
+      # Personal Info
       :requested_amount,
       :monthly_sales,
       :first_name,
@@ -31,6 +32,14 @@ class LeadsController < ApplicationController
       :email,
       :phone,
       :sms_consent,
+      # Business Info
+      :business_name,
+      :years_in_business,
+      :business_classification,
+      :ein,
+      :home_based,
+      :industry,
+      :website
     )
   end
 end
