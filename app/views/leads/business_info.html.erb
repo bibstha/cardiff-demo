@@ -1,7 +1,4 @@
-<div class="mx-auto p-8 w-full lg:w-2/3 overflow-y-auto">
-  <%# Progress Bar - Placeholder %>
-  <div class="mb-4 text-gray-500 text-sm text-right">Progress 33%</div> <%# Adjust percentage as needed %>
-
+<div class="mx-auto px-8 w-full lg:w-2/3 overflow-y-auto">
   <h1 class="mb-6 font-semibold text-gray-800 text-2xl">Business Information</h1>
 
   <%= form_with model: @lead, url: wizard_path, method: :put, data: { turbo: false } do |f| %>

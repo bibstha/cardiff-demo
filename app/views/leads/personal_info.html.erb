@@ -1,9 +1,4 @@
-<div class="mx-auto p-8 w-full lg:w-2/3 overflow-y-auto">
-  <%# Progress Bar - Simple text version %>
-  <div class="mb-4 text-gray-500 text-sm text-right">Progress 0%</div>
-  <%# You might want a more visual progress bar here %>
-  <%# Example: render partial: "shared/onboarding/progress_bar", locals: { step: wizard_steps.index(step), total_steps: wizard_steps.count } %>
-  
+<div class="mx-auto px-8 w-full lg:w-2/3 overflow-y-auto">
   <h1 class="mb-6 font-semibold text-gray-800 text-2xl">Check your business eligibility in 60 seconds</h1>
 
   <%= form_with model: @lead, url: wizard_path, method: :put, data: { turbo: false } do |f| %>
