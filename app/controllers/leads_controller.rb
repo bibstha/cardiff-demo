@@ -5,6 +5,10 @@ class LeadsController < ApplicationController
 
   layout 'onboarding'
 
+  def new
+    redirect_to leads_path
+  end
+
   def show
     @lead = Lead.new
     render_wizard
