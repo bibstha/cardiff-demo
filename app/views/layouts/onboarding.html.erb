@@ -13,6 +13,7 @@
     <div class="flex">
       <%= render "shared/onboarding/sidebar", step_array: @step_array %>
       <div class="flex-1 overflow-auto">
+        <div class="md:hidden flex justify-center items-center bg-blue-800 h-12 font-bold text-white text-2xl">cardiff</div>
         <%= render "shared/onboarding/mobile_progress_bar", step_array: @step_array %>
         <%= render "shared/flash_messages" %>
         <main class="px-6 lg:px-12 py-8 lg:py-12">

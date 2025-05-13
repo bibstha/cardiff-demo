@@ -1,0 +1,109 @@
+<div class="mx-auto px-8 w-full lg:w-2/3 overflow-y-auto">
+  <h1 class="mb-6 font-semibold text-gray-800 text-2xl">All Done.</h1>
+  <p class="mb-6 text-gray-600">Your information at a glance.</p>
+
+  <div class="bg-white shadow sm:rounded-lg overflow-hidden">
+    <dl class="divide-y divide-gray-200">
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Email</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.email %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">First Name</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.first_name %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Last Name</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.last_name %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Phone</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.phone %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Monthly Sales</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= number_to_currency(@lead.monthly_sales) %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Requested Amount</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= number_to_currency(@lead.requested_amount) %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">SMS Consent</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.sms_consent ? 'Yes' : 'No' %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">SMS Opt In</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.sms_opt_in ? 'Yes' : 'No' %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Business Name</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.business_name %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Year In Business</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.year_in_business %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Business Classification</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.business_classification %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">EIN</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.ein %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Home Based</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.home_based ? 'Yes' : 'No' %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Industry</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.industry %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Website</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.website %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Browser</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.utm_browser %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Device Type</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.utm_device_type %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">OS</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.utm_os %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Submitted At</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.created_at.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+      </div>
+
+      <div class="sm:gap-4 sm:grid sm:grid-cols-3 px-4 sm:px-6 py-5">
+        <dt class="font-medium text-gray-500 text-sm">Last Updated At</dt>
+        <dd class="sm:col-span-2 mt-1 sm:mt-0 text-gray-900 text-sm"><%= @lead.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+      </div>
+    </dl>
+  </div>
+</div>
+

@@ -1,0 +1,7 @@
+<%# Progress Bar - Placeholder %>
+<div class="flex justify-between items-center gap-2 mt-2 px-8">
+  <div class="bg-slate-200 rounded-full w-full overflow-hidden">
+    <div class="bg-indigo-500 rounded-full h-1.5" style="width: <%= @progress.to_i %>%"></div>
+  </div>
+  <div class="text-gray-500 text-sm text-right"><%= @progress.to_i %>%</div>
+</div>

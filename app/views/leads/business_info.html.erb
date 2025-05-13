@@ -1,7 +1,4 @@
-<div class="mx-auto p-8 w-full lg:w-2/3 overflow-y-auto">
-  <%# Progress Bar - Placeholder %>
-  <div class="mb-4 text-gray-500 text-sm text-right">Progress 33%</div> <%# Adjust percentage as needed %>
-
+<div class="mx-auto px-8 w-full lg:w-2/3 overflow-y-auto">
   <h1 class="mb-6 font-semibold text-gray-800 text-2xl">Business Information</h1>
 
   <%= form_with model: @lead, url: wizard_path, method: :put, data: { turbo: false } do |f| %>
@@ -25,13 +22,13 @@
 
     <%# Years in Business %>
     <div class="mb-4">
-      <%= f.label :years_in_business, class: "block text-sm font-medium text-gray-700 mb-2" %>
+      <%= f.label :year_in_business, "Years in Business", class: "block text-sm font-medium text-gray-700 mb-2" %>
       <div class="gap-4 grid grid-cols-2">
         <% years_options = ["0-1 year", "1-2 years", "2-5 years", "5+ years"] %>
         <% years_options.each do |option| %>
           <div>
-            <%= f.radio_button :years_in_business, option, id: "years_#{option.parameterize}", class: "sr-only peer" %>
-            <%= f.label "years_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 peer-checked:font-medium hover:bg-gray-50" do %>
+            <%= f.radio_button :year_in_business, option, id: "years_#{option.parameterize}", class: "sr-only peer" %>
+            <%= f.label :year_in_business, for: "years_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-green-100 peer-checked:border-green-500 peer-checked:text-green-800 peer-checked:font-medium hover:bg-gray-50" do %>
               <%= option %>
             <% end %>
           </div>
@@ -47,7 +44,7 @@
          <% classification_options.each do |option| %>
            <div>
              <%= f.radio_button :business_classification, option, id: "classification_#{option.parameterize}", class: "sr-only peer" %>
-             <%= f.label "classification_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-blue-100 peer-checked:border-blue-500 peer-checked:text-blue-800 peer-checked:font-medium hover:bg-gray-50" do %>
+             <%= f.label :business_classification, for: "classification_#{option.parameterize}", class: "block w-full rounded-sm border border-gray-300 shadow-xs h-12 px-3 py-3 text-center text-sm text-gray-700 cursor-pointer peer-checked:bg-green-100 peer-checked:border-green-500 peer-checked:text-green-800 peer-checked:font-medium hover:bg-gray-50" do %>
                <%= option %>
              <% end %>
            </div>
